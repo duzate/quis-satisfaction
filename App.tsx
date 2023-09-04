@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, View, Dimensions } from "react-native";
+import HomeScreen from "./src/screens/HomeScreen";
+import * as NavigationBar from "expo-navigation-bar";
 
 export default function App() {
+  NavigationBar.setVisibilityAsync("hidden");
+  const { height, width } = Dimensions.get("window");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ backgroundColor: "#262e75", flexDirection: "row", flex: 1 }}>
+      <StatusBar hidden />
+      <View style={{ width: width / 2 }}></View>
+      <HomeScreen />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
